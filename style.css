@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #111;
+  color: #fff;
+  padding: 2rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+img#rux-logo {
+  width: 320px;
+  height: auto;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.brand {
+  color: #ff3c3c;
+}
+
+#toggle-mode {
+  padding: 0.6rem 1.2rem;
+  border: 2px solid #fff;
+  background: none;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#toggle-mode:hover {
+  background: #fff;
+  color: #000;
+}
+
+.intro, .tiers {
+  margin-top: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.intro ul {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+.intro li {
+  margin-bottom: 0.5rem;
+}
+
+.tiers .tier {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid #444;
+  border-radius: 8px;
+}
+
+footer {
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: #999;
+}
+
+/* Light mode overrides */
+html:not(.dark) body {
+  background-color: #fff;
+  color: #000;
+}
+
+html:not(.dark) #toggle-mode {
+  border-color: #000;
+  color: #000;
+}
+
+html:not(.dark) #toggle-mode:hover {
+  background: #000;
+  color: #fff;
+}
+
+html:not(.dark) .brand {
+  color: #d20000;
+}

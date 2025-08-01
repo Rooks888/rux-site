@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RUX — Of course, RUX.works</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img
+      src="assets/rux-logo.png"
+      alt="RUX Logo"
+      id="rux-logo"
+      onmouseenter="document.getElementById('rooks-audio').play()"
+    />
+    <audio id="rooks-audio" src="assets/rooks.mp3" preload="auto"></audio>
+    <h1>Of course, <span class="brand">RUX.works</span></h1>
+    <button id="toggle-mode">Toggle Light Mode</button>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h2>Your Personal Cloud. Fortified.</h2>
+      <p>
+        RUX is a secure, Linux-based backup and sync system for creators, remote workers, and privacy-first users who refuse to rely on Big Tech.
+      </p>
+      <ul>
+        <li>Encrypted external storage</li>
+        <li>Tailscale remote access</li>
+        <li>Concierge setup included</li>
+      </ul>
+    </section>
+
+    <section class="tiers">
+      <h2>Choose Your RUX</h2>
+      <div class="tier"><strong>Basic:</strong> Local sync only</div>
+      <div class="tier"><strong>Pro:</strong> Remote access + auto backups</div>
+      <div class="tier"><strong>VIP:</strong> On-call support + priority install</div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; RUX. All rights locked.</p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById("toggle-mode");
+    toggle.addEventListener("click", () => {
+      document.documentElement.classList.toggle("dark");
+      toggle.textContent = document.documentElement.classList.contains("dark")
+        ? "Toggle Light Mode"
+        : "Toggle Dark Mode";
+    });
+  </script>
+</body>
+</html>
