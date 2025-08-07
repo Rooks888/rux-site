@@ -88,11 +88,12 @@ html:not(.dark) .brand {
   color: #d20000;
 }
 
-.how-it-works ol {
+.how-list {
   list-style: none;
   padding-left: 0;
+  margin-left: 0;
 }
 
-.how-it-works li {
+.how-list li {
   margin-bottom: 0.5em;
 }
