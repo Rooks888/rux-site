@@ -87,3 +87,12 @@ html:not(.dark) #toggle-mode:hover {
 html:not(.dark) .brand {
   color: #d20000;
 }
+
+.how-it-works ol {
+  list-style: none;
+  padding-left: 0;
+}
+
+.how-it-works li {
+  margin-bottom: 0.5em;
+}

@@ -4,6 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RUX — Of course, RUX.works</title>
+  <meta name="description" content="RUX is a secure, Linux-based cloud backup system for creators, remote workers, and privacy-first users. Control everything.">
+  <meta name="theme-color" content="#000000" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/rux-logo.png" type="image/png" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="RUX — Of course, RUX.works" />
+  <meta property="og:description" content="Secure, Linux-based backup and sync built for privacy, control, and creators." />
+  <meta property="og:image" content="https://rux.works/assets/rux-logo.png" />
+  <meta property="og:url" content="https://rux.works" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="RUX — Of course, RUX.works" />
+  <meta name="twitter:description" content="Private cloud for privacy-first users. Control Everything." />
+  <meta name="twitter:image" content="https://rux.works/assets/rux-logo.png" />
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -12,7 +31,6 @@
       src="assets/rux-logo.png"
       alt="RUX Logo"
       id="rux-logo"
-      onmouseenter="document.getElementById('rooks-audio').play()"
     />
     <audio id="rooks-audio" src="assets/rooks.mp3" preload="auto"></audio>
     <h1>Of course, <span class="brand">RUX.works</span></h1>
@@ -31,12 +49,95 @@
         <li>Concierge setup included</li>
       </ul>
     </section>
+<section class="tiers">
+  <h2>Choose Your RUX</h2>
 
-    <section class="tiers">
-      <h2>Choose Your RUX</h2>
-      <div class="tier"><strong>Basic:</strong> Local sync only</div>
-      <div class="tier"><strong>Pro:</strong> Remote access + auto backups</div>
-      <div class="tier"><strong>VIP:</strong> On-call support + priority install</div>
+  <div class="tier">
+    <strong>Basic Lite — $10/month</strong>
+    <ul>
+      <li>1 device</li>
+      <li>Local backup only</li>
+      <li>Quarterly check-in</li>
+    </ul>
+  </div>
+
+  <div class="tier">
+    <strong>Basic Standard — $25/month</strong>
+    <ul>
+      <li>Up to 3 devices</li>
+      <li>Local sync only</li>
+      <li>Monthly health checks</li>
+    </ul>
+  </div>
+
+  <div class="tier">
+    <strong>Pro — $50/month</strong>
+    <ul>
+      <li>Remote access via Tailscale</li>
+      <li>Auto sync across devices</li>
+      <li>Encrypted backups</li>
+      <li>Monthly support included</li>
+    </ul>
+  </div>
+
+  <div class="tier">
+    <strong>VIP — $100/month</strong>
+    <ul>
+      <li>On-call support (24h)</li>
+      <li>White-glove install</li>
+      <li>Unlimited devices</li>
+      <li>Priority upgrades + lifetime drive warranty</li>
+    </ul>
+  </div>
+</section>
+
+
+    <section class="how-it-works">
+      <h2>How It Works</h2>
+      <ol>
+        <li><strong>1.</strong> Choose a service tier that fits your needs</li>
+        <li><strong>2.</strong> RUX technician delivers and installs your hub</li>
+        <li><strong>3.</strong> Your data is synced securely and backed up automatically</li>
+        <li><strong>4.</strong> Control everything — remotely and privately</li>
+      </ol>
+    </section>
+
+    <section class="testimonials">
+      <h2>What Clients Say</h2>
+      <blockquote>
+        “I don’t trust cloud storage. RUX gave me control without the hassle.”  
+        <cite>— M.S., Photographer</cite>
+      </blockquote>
+      <blockquote>
+        “Set up took under an hour. It just works, and I don’t think about it.”  
+        <cite>— C.J., Therapist</cite>
+      </blockquote>
+      <blockquote>
+        “Finally, a backup solution built by someone who understands privacy.”  
+        <cite>— R.H., Consultant</cite>
+      </blockquote>
+    </section>
+
+    <section class="contact">
+      <h2>Contact RUX</h2>
+      <p>Want a RUX install or have questions? Start the conversation:</p>
+      <form action="https://formspree.io/f/xanblorr" method="POST">
+  <input type="hidden" name="_subject" value="New RUX Inquiry" />
+  <input type="hidden" name="_captcha" value="false" />
+
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required />
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required />
+
+  <label for="message">Message:</label>
+  <textarea id="message" name="message" rows="4" required></textarea>
+
+  <button type="submit">Send</button>
+  <p id="form-response" style="display:none; margin-top: 1rem;"></p>
+</form>
+
     </section>
   </main>
 
@@ -44,14 +145,51 @@
     <p>&copy; RUX. All rights locked.</p>
   </footer>
 
-  <script>
-    const toggle = document.getElementById("toggle-mode");
-    toggle.addEventListener("click", () => {
-      document.documentElement.classList.toggle("dark");
-      toggle.textContent = document.documentElement.classList.contains("dark")
-        ? "Toggle Light Mode"
-        : "Toggle Dark Mode";
+ <script>
+  // Logo audio
+  const logo = document.getElementById('rux-logo');
+  const audio = document.getElementById('rooks-audio');
+
+  function playAudio() {
+    audio.currentTime = 0;
+    audio.play().catch(err => {
+      console.warn("Audio playback prevented:", err);
     });
-  </script>
+  }
+
+  logo.addEventListener('mouseenter', playAudio); // Desktop hover
+  logo.addEventListener('click', playAudio);      // Mobile click
+
+  // Dark mode toggle
+  const toggleButton = document.getElementById('toggle-mode');
+  const htmlEl = document.documentElement;
+
+  toggleButton.addEventListener('click', () => {
+    htmlEl.classList.toggle('dark');
+    toggleButton.textContent = htmlEl.classList.contains('dark')
+      ? 'Toggle Light Mode'
+      : 'Toggle Dark Mode';
+  });
+
+  // Contact form handling with custom redirect
+  const form = document.querySelector('form');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+
+    fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(() => {
+      form.reset();
+      window.location.href = "/thank-you.html"; // Change if your page has a different path
+    }).catch(() => {
+      alert("Oops! Something went wrong.");
+    });
+  });
+</script>
+
 </body>
 </html>
